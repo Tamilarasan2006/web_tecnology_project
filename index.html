@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmers Friend - Unified</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+   </head>
+<body>
+
+    <header>
+        <h1>
+           <img src="image/logo.jpeg" alt="Farmers Friend Logo" class="header-logo">
+            <span id="header-title">FARMERS FRIEND</span>
+            <i class="fa-solid fa-tractor tractor-icon"></i>
+        </h1>
+<div class="profile-btn-top" onclick="showTab('profile', 'MY PROFILE', null)">
+            <i class="fa-solid fa-user" style="color: var(--header-text); font-size: 18px;"></i>
+        </div>
+    </header>
+
+    <main id="viewport">
+        
+        <section id="home" class="section active">
+            <div class="dashboard-row">
+                <div class="dash-card card-green">
+                    <span class="dash-title">TODAY'S CROP RATES</span>
+                    <span class="crop-price">PADDY (COMMON);<br>₹1,800/QUINTAL</span>
+                    <span class="sub-text">SUGARCANE</span>
+                </div>
+                <div class="dash-card card-blue">
+                    <span class="dash-title">MARKET PRICE TRENDS</span>
+                    <div class="graph-container">
+                        <div class="graph-line">
+                            <svg viewBox="0 0 100 50" preserveAspectRatio="none"><path d="M0,40 Q25,10 50,30 T100,10" /></svg>
+                        </div>
+                    </div>
+                    <span class="sub-text" style="font-size: 12px; font-weight: bold;">PADDY: + 2.5% &nbsp;&nbsp; SUGARCANE - 1.5%</span>
+                </div>
+            </div>
+
+            <div class="section-title">BEST SELLING PRODUCTS</div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="image/seeds.jpg" class="product-img">
+                    <span class="prod-name">VEGETABLE SEEDS</span>
+                    <span class="prod-price">₹99</span>
+                </div>
+                <div class="product-card">
+                    <img src="image/oil.jpg" class="product-img">
+                    <span class="prod-name">ORGANIC OIL</span>
+                    <span class="prod-price">₹350/LITRE</span>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1628352081506-83c43123ed6d?w=200" class="product-img">
+                    <span class="prod-name">ORGANIC FERTILIZER</span>
+                    <span class="prod-price">₹180</span>
+                </div>
+            </div>
+        </section>
+
+       <section id="tools" class="section">
+            <div class="search-container">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="fertSearch" class="search-bar" placeholder="Search for fertilizers (e.g. Urea, Potash)..." onkeyup="filterFertilizers()">
+            </div>
+
+            <div class="lab-visual" style="margin-bottom: 20px;"></div>
+            
+            <div class="section-title">Verified Fertilizer Catalog</div>
+            <div class="product-grid" id="fertGrid">
+                <div class="product-card fert-item">
+                    <img src="https://images.unsplash.com/photo-1628352081506-83c43123ed6d?w=200" class="product-img">
+                    <span class="prod-name">Urea (46% Nitrogen)</span>
+                    <span class="prod-price">₹450</span>
+                    <button class="verify-btn" style="background:var(--lab-blue); width:100%; margin-top:5px;">Add to Cart</button>
+                </div>
+                <div class="product-card fert-item">
+                    <img src="image/dap-fertilizer.jpg" class="product-img">
+                    <span class="prod-name">DAP Fertilizer</span>
+                    <span class="prod-price">₹1,350</span>
+                    <button class="verify-btn" style="background:var(--lab-blue); width:100%; margin-top:5px;">Add to Cart</button>
+                </div>
+                <div class="product-card fert-item">
+                    <img src="image/mop.jpg" class="product-img">
+                    <span class="prod-name">MOP (Potash)</span>
+                    <span class="prod-price">₹850</span>
+                    <button class="verify-btn" style="background:var(--lab-blue); width:100%; margin-top:5px;">Add to Cart</button>
+                </div>
+                <div class="product-card fert-item">
+                    <img src="image/Organic_Compost.jpg" class="product-img">
+                    <span class="prod-name">Organic Compost</span>
+                    <span class="prod-price">₹220</span>
+                    <button class="verify-btn" style="background:var(--lab-blue); width:100%; margin-top:5px;">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+     <section id="market" class="section">
+            <div class="market-form">
+                <h3><i class="fa-solid fa-plus-circle" style="color:var(--nature-brown)"></i> List Your Harvest</h3>
+                <div class="form-group">
+                    <label>CROP NAME</label>
+                    <input type="text" id="cropName" class="market-input" placeholder="e.g. Basmati Rice">
+                </div>
+                <div class="form-group">
+                    <label>EXPECTED PRICE (PER QUINTAL)</label>
+                    <input type="number" id="cropPrice" class="market-input" placeholder="e.g. 2500">
+                </div>
+                <button class="verify-btn" onclick="postHarvest()" style="width: 100%; background: var(--nature-brown);">POST FOR SALE</button>
+            </div>
+
+            <div class="section-title">Active Market Listings</div>
+            <div id="harvestList" class="product-grid">
+                <div class="product-card">
+                    <span class="prod-name">WHEAT (GOLDEN)</span>
+                    <span class="prod-price">₹2,100</span>
+                    <small>Available: 50 Quintals</small>
+                </div>
+            </div>
+</section>
+
+        <section id="cattle" class="section">
+            <div class="product-card medical-card" style="width: 100%; text-align: left; display: flex; gap: 20px; align-items: center;">
+                <i class="fa-solid fa-user-md" style="font-size: 40px; color: var(--medical-red);"></i>
+                <div>
+                    <h3 style="margin:0">Live Veterinary Doctor</h3>
+                    <p style="margin:5px 0; font-size: 12px;">Immediate support for cattle health & vaccines.</p>
+                    <a href="https://www.vetlive.in/">
+                    <button class="verify-btn" style="background:var(--medical-red)">Consult Doctor</button>
+                    </a>
+                </div>
+            </div>
+            <br>
+            <div class="section-title">Health Certified Livestock</div>
+            <div class="product-grid">
+                <div class="product-card medical-card">
+                    <i class="fa-solid fa-paw" style="color:var(--medical-red); float:right"></i>
+                    <img src="https://images.unsplash.com/photo-1546445317-29f4545e9d53?w=200" class="product-img">
+                    <span class="prod-name">HF Cow (Healthy)</span>
+                    <span class="prod-price">₹65,000</span>
+                </div>
+            </div>
+        </section>
+        <section id="profile" class="section">
+            <div class="profile-card">
+                <div class="profile-hero">
+                    <div class="profile-img-large"><i class="fa-solid fa-user"></i></div>
+                    <h2 style="margin:0">Lenin S</h2>
+                    <p style="opacity: 0.8; margin: 5px 0;">Farmer ID: #F93798012</p>
+                </div>
+                <div class="profile-stats">
+                    <div class="stat-box">
+                        <span>4.5</span>
+                        <label>Acres</label>
+                    </div>
+                    <div class="stat-box">
+                        <span>12</span>
+                        <label>Crops Sold</label>
+                    </div>
+                    <div class="stat-box">
+                        <span>₹42k</span>
+                        <label>Revenue</label>
+                    </div>
+                </div>
+                <div class="profile-menu">
+                    <div class="menu-item"><i class="fa-solid fa-file-invoice-dollar"></i> My Transactions</div>
+                    <div class="menu-item"><i class="fa-solid fa-map-location-dot"></i> Land Records</div>
+                    <div class="menu-item"><i class="fa-solid fa-gear"></i> App Settings</div>
+                    <div class="menu-item" style="color:var(--medical-red)"><i class="fa-solid fa-right-from-bracket"></i> Logout</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="bottom-panel">
+        <div class="weather-box">
+            <div class="weather-text">
+                <div>WEATHER & AI</div>
+                <div class="weather-temp"><i class="fa-solid fa-cloud-sun" style="color: #f9a825;"></i> 29°C, SUNNY</div>
+            </div>
+        </div>
+
+        <div class="nav-center">
+            <button class="nav-btn active" onclick="showTab('home', 'FARMERS FRONT', this)">
+                <i class="fa-solid fa-house"></i><span>HOME</span>
+            </button>
+                <button class="nav-btn" onclick="showTab('tools', 'LAB & TOOLS', this)">
+                <i class="fa-solid fa-flask"></i><span>FERTILIZERS</span>
+                </button>
+            
+                
+            <button class="nav-btn" onclick="showTab('market', 'NATURE MARKET', this)">
+                <i class="fa-solid fa-tree"></i><span>MARKET</span>
+            </button>
+            <button class="nav-btn" onclick="showTab('cattle', 'VET CARE', this)">
+                <i class="fa-solid fa-stethoscope"></i><span>CATTLE</span>
+            </button>
+        </div>
+
+        <div class="broker-box">
+            <span class="broker-label">CROPS BROKER ID</span>
+            <div class="broker-input-wrapper">
+                <input type="text" class="broker-input" placeholder="ID: F93798012">
+                <button class="verify-btn">VERIFY</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
