@@ -45,20 +45,21 @@ function filterFertilizers() {
 function postHarvest() {
     const nameInput = document.getElementById('cropName');
     const priceInput = document.getElementById('cropPrice');
-    
-    const name = nameInput.value;
-    const price = priceInput.value;
+    const qtyInput = document.getElementById('cropQuantity');
 
-   
+    const name = nameInput.value.trim();
+    const price = priceInput.value;
+    const quantity = qtyInput.value;
+
     if (name && price && quantity) {
         const list = document.getElementById('harvestList');
         const newCard = document.createElement('div');
         newCard.className = 'product-card';
 
         newCard.innerHTML = `
-            <span class="prod-name">${name.toUpperCase()}</span><br>
-            <b>₹${price}</b><br>
-            <small>Quantity: ${quantity} kg</small>
+            <span class="prod-name">${name.toUpperCase()}</span>
+            <span class="prod-price">₹${price} / Quintal</span>
+            <small>Available: ${quantity} Quintals</small>
         `;
 
         list.prepend(newCard);
@@ -67,10 +68,10 @@ function postHarvest() {
         nameInput.value = '';
         priceInput.value = '';
         qtyInput.value = '';
-        
+
         alert("Harvest posted successfully!");
     } else {
-        alert("Please enter both Crop Name and Price");
+        alert("Please fill all fields (Crop, Price, Quantity)");
     }
-
 }
+
