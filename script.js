@@ -49,22 +49,28 @@ function postHarvest() {
     const name = nameInput.value;
     const price = priceInput.value;
 
-    if (name && price) {
+   
+    if (name && price && quantity) {
         const list = document.getElementById('harvestList');
         const newCard = document.createElement('div');
         newCard.className = 'product-card';
+
         newCard.innerHTML = `
             <span class="prod-name">${name.toUpperCase()}</span><br>
-            <b>₹${price}</b>
+            <b>₹${price}</b><br>
+            <small>Quantity: ${quantity} kg</small>
         `;
+
         list.prepend(newCard);
-        
+
         // Clear inputs
         nameInput.value = '';
         priceInput.value = '';
+        qtyInput.value = '';
         
         alert("Harvest posted successfully!");
     } else {
         alert("Please enter both Crop Name and Price");
     }
+
 }
