@@ -58,7 +58,7 @@ function postHarvest() {
 
         newCard.innerHTML = `
             <span class="prod-name">${name.toUpperCase()}</span>
-            <span class="prod-price">₹${price} / Quintal</span>
+            <span class="prod-price">₹${price} </span>
             <small>Available: ${quantity} Quintals</small>
         `;
 
@@ -74,4 +74,5 @@ function postHarvest() {
         alert("Please fill all fields (Crop, Price, Quantity)");
     }
 }
+
 
